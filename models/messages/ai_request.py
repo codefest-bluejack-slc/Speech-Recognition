@@ -7,6 +7,6 @@ class AIRequest(BaseModel):
     The audio file itself will come via multipart/form-data (UploadFile).
     """
     language: Optional[str] = Field(
-        default=None,
+        default='en',
         description="Optional language code of the audio (e.g., 'en', 'id')."
     )

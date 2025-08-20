@@ -14,14 +14,13 @@ client = OpenAI(
 @app.post("/transcribe", response_model=AIResponse)
 async def transcribe_audio(
     file: UploadFile = File(..., description="Audio file to transcribe"),
-    language: str = Form(None)
 ):
     """
     Endpoint to transcribe audio files.
     The audio file is expected to be sent as multipart/form-data.
     """
 
-    ai_request = AIRequest(language=language)
+    ai_request = AIRequest(language='en')
     audio_file = await file.read()
     print(f"Received file: {file.filename}, size: {len(audio_file)} bytes")
 
